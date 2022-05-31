@@ -63,40 +63,49 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::table('users', function (Blueprint $table) {
             // identitas pribadi
-            // $table->dropColumn('fullname');
-            // $table->dropColumn('nickname');
-            // $table->dropColumn('avatar');
-            // $table->dropColumn('phone');
-            // $table->dropColumn('jenis_kelamin');
-            // $table->dropColumn('tempat_lahir');
-            // $table->dropColumn('tanggal_lahir');
-            // $table->dropColumn('ttd');
+            $table->dropColumn([
+                'fullname', 
+                'nickname', 
+                'avatar', 
+                'phone', 
+                'jenis_kelamin', 
+                'tempat_lahir', 
+                'tanggal_lahir', 
+                'ttd'
+            ]);
 
             // alamat
-            // $table->dropColumn('alamat');
-            // $table->dropColumn('kodepos');
-            // $table->dropColumn('provinsi_id');
-            // $table->dropColumn('kota_id');
-            // $table->dropColumn('kecamatan_id');
-            // $table->dropColumn('kelurahan_id');
-            // $table->dropColumn('long');
-            // $table->dropColumn('lat');
+            $table->dropColumn([
+                'alamat', 
+                'kodepos', 
+                'provinsi_id',
+                'kota_id',
+                'kecamatan_id',
+                'kelurahan_id',
+                'long', 
+                'lat'
+            ]);
 
+            // $table->dropForeign(['provinsi_id']);
+            
             // orang tua dan wali
-            // $table->dropColumn('nik_ayah');
-            // $table->dropColumn('nama_ayah');
-            // $table->dropColumn('pekerjaan_ayah');
-            // $table->dropColumn('penghasilan_ayah');
-            // $table->dropColumn('nik_ibu');
-            // $table->dropColumn('nama_ibu');
-            // $table->dropColumn('pekerjaan_ibu');
-            // $table->dropColumn('penghasilan_ibu');
-            // $table->dropColumn('nik_wali');
-            // $table->dropColumn('nama_wali');
-            // $table->dropColumn('pekerjaan_wali');
-            // $table->dropColumn('penghasilan_wali');
+            $table->dropColumn([
+                'nik_ayah',
+                'nama_ayah',
+                'pekerjaan_ayah',
+                'penghasilan_ayah',
+                'nik_ibu',
+                'nama_ibu',
+                'pekerjaan_ibu',
+                'penghasilan_ibu',
+                'nik_wali',
+                'nama_wali',
+                'pekerjaan_wali',
+                'penghasilan_wali'
+            ]);
         });
     }
 };

@@ -56,6 +56,7 @@ class UserFactory extends Factory
             'nama_wali' => $this->faker->name($gender = 'male' | 'female'),
             'pekerjaan_wali' => $this->faker->jobTitle(),
             'penghasilan_wali' => $this->faker->randomNumber($nbDigits = NULL, $strict = false),
+            'is_active' => $this->faker->randomElement($array = array('0', '1')),
         ];
     }
 
