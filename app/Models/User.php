@@ -9,6 +9,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Laravolt\Indonesia\Models\City;
+use Laravolt\Indonesia\Models\District;
+use Laravolt\Indonesia\Models\Province;
+use Laravolt\Indonesia\Models\Village;
 
 class User extends Authenticatable
 {
@@ -95,5 +99,23 @@ class User extends Authenticatable
     {
         // return 'profile/username';
         return 'profile';
+    }
+
+    public function provinsi()
+    {
+        return $this->belongsTo(Province::class);
+    }
+    
+    public function kota()
+    {
+        return $this->belongsTo(City::class);
+    }
+    public function kecamatan()
+    {
+        return $this->belongsTo(District::class);
+    }
+    public function kelurahan()
+    {
+        return $this->belongsTo(Village::class);
     }
 }

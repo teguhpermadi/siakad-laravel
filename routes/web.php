@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PtkController;
 use Illuminate\Support\Facades\Route;
 use Laravolt\Indonesia\Models\Village;
 
@@ -21,6 +22,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/ptk/data', [PtkController::class, 'getData']);
+Route::resource('/ptk', PtkController::class);
 
 Route::get('tes', function(){
     return view('pages.home');
